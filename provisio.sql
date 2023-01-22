@@ -38,11 +38,12 @@ DROP TABLE IF EXISTS reservation;
 
 -- CREATE USER TABLE
 CREATE TABLE user (
-    id              INT             NOT NULL        AUTO_INCREMENT,
+    user_id              INT             NOT NULL        AUTO_INCREMENT,
     first_name      VARCHAR(75)     NOT NULL,
     last_name       VARCHAR(75)     NOT NULL,
     email           VARCHAR(255)    NOT NULL,
     passphrase      VARCHAR(255)    NOT NULL,
+    loyalty_points  VARCHAR(255)    NOT NULL,
     PRIMARY KEY(id)
 );
 -- INSERT INTO SQL COMMANDS FOR USERS
@@ -85,7 +86,7 @@ CREATE TABLE hotel (
     price           INT             NOT NULL,
     descrip         VARCHAR(255)    NOT NULL,
     amenitites      VARCHAR(300)    NOT NULL,
-    location_id     INT             NOT NULL,
+    place_id        INT             NOT NULL,
     PRIMARY KEY(hotel_id)
     -- May need to add a foreign key for place_id
 );
@@ -122,4 +123,34 @@ INSERT INTO hotel(hotel_name, price, descrip, amenitites, location_id)
     -- CREATE RESERVATIONS TABLE
     
     CREATE TABLE reservations(
+    reservations_id      INT             NOT NULL        AUTO_INCREMENT,
+    user_id              INT             NOT NULL        AUTO_INCREMENT,
+    hotel_id             INT             NOT NULL        AUTO_INCREMENT,
     
+    PRIMARY KEY(reservations_id)
+    CONSTRAINT fk_hotel
+    FOREIGN KEY (hotel_id)
+        REFERENCES hotel(hotel_id),
+    CONSTRAINT fk_user
+    FOREIGN KEY (user_id)
+        REFERENCES user(user_Id)
+); 
+
+INSERT INTO reservations(user_id, hotel_id)
+    VALUES( (SELECT user_id FROM user WHERE first_name = 'Darrell'),
+    VALUES( (SELECT hotel_id FROM hotel WHERE hotel_name = 'Old Key West'),
+    VALUES( (SELECT reservations_id FROM reservations WHERE user_id = 1),
+            );
+
+INSERT INTO reservations(user_id, hotel_id)
+    VALUES( (SELECT user_id FROM user WHERE first_name = 'Austin'),
+    VALUES( (SELECT hotel_id FROM hotel WHERE hotel_name = 'Provisio SouthBeach'),
+    VALUES( (SELECT reservations_id FROM reservations WHERE user_id = 2),
+            );
+           
+INSERT INTO reservations(user_id, hotel_id)
+    VALUES( (SELECT user_id FROM user WHERE first_name = 'Isabella'),
+    VALUES( (SELECT hotel_id FROM hotel WHERE hotel_name = 'Grand Provisio'),
+    VALUES( (SELECT reservations_id FROM reservations WHERE user_id = 3),
+            );
+           
