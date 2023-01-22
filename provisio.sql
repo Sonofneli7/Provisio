@@ -63,7 +63,7 @@ CREATE TABLE place (
     city            VARCHAR(75)     NOT NULL,
     ind_state       VARCHAR(75)     NOT NULL,
     zip             VARCHAR(255)    NOT NULL,
-    picture         VARCHAR(300)    NOT NULL,
+    picture         BLOB            NOT NULL,
     PRIMARY KEY(place_id)
 );
 
