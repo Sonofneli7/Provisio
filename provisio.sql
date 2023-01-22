@@ -85,7 +85,7 @@ CREATE TABLE hotel (
     hotel_name      VARCHAR(75)     NOT NULL,
     price           INT             NOT NULL,
     descrip         VARCHAR(255)    NOT NULL,
-    amenitites      VARCHAR(300)    NOT NULL,
+    amentities      VARCHAR(300)    NOT NULL,
     place_id        INT             NOT NULL,
     PRIMARY KEY(hotel_id)
     -- May need to add a foreign key for place_id
