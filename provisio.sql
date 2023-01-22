@@ -44,7 +44,7 @@ CREATE TABLE user (
     email           VARCHAR(255)    NOT NULL,
     passphrase      VARCHAR(255)    NOT NULL,
     loyalty_points  VARCHAR(255)    NOT NULL,
-    PRIMARY KEY(id)
+    PRIMARY KEY(user_id)
 );
 -- INSERT INTO SQL COMMANDS FOR USERS
 INSERT INTO user(first_name, last_name, email, passphrase)
