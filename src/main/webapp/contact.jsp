@@ -14,18 +14,21 @@
 </head>
 <body>
 <!-- NAVBAR JSP INCLUDE FOR FLEXIBILITY -->
-	<jsp:include page="navbar.jsp" />
+	<jsp:include page="partials/navbar.jsp" />
 	
 	<!--Modal fade for User Login-->
-   <jsp:include page="loginForm.jsp" />
+   <jsp:include page="partials/loginForm.jsp" />
 
  	<!--Modal fade for User Registration-->
- 	<jsp:include page="registration.jsp" />
+ 	<jsp:include page="partials/registration.jsp" />
+ 	
+ 	
+ 	
  	
  	<div class="container overlay-content">
-			<h1 class="hero-heading">How can we help you?</h1>
-		</div>
-	</section>
+		<h1 class="hero-heading">How can we help you?</h1>
+	</div>
+	
 
 	<section class="py-6">
 		<div class="container">
@@ -57,21 +60,26 @@
 					<h3 class="h5">Email Us</h3>
 					<p class="text-muted">Please feel free to email us, sometimes for time and convenience this is the best option.</p>
 					<ul class="list-unstyled text-muted">
-						<li><a
-							href="mailto:info@provisio.com?subject=Comments and Inquires from Provisio.com">
-								info@provisio.com </a></li>
-						<li><a
-							href="mailto:support@provisio.com?subject=Technical Support Request Provisio.com">
-								support@provisio.com </a></li>
+						<li>
+							<a href="mailto:info@provisio.com?subject=Comments and Inquires from Provisio.com">
+								info@provisio.com 
+							</a>
+						</li>
+						<li>
+							<a href="mailto:support@provisio.com?subject=Technical Support Request Provisio.com">
+							support@provisio.com 
+							</a>
+						</li>
 					</ul>
 				</div>
 			</div>
 		</div>
 	</section>
-	
-	
+ 	
+ 	
+ 	
  	
  	<!-- FOOTER INCLUDE  -->
- 	<jsp:include page="footer.jsp" />
+ 	<jsp:include page="partials/footer.jsp" />
 </body>
 </html>

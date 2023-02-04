@@ -15,35 +15,18 @@
 <body>
 
 	<!-- NAVBAR JSP INCLUDE FOR FLEXIBILITY -->
-	<jsp:include page="navbar.jsp" />
+	<jsp:include page="partials/navbar.jsp" />
 
 	<!-- NAVBAR JSP INCLUDE FOR FLEXIBILITY -->
-	<div id="landingHeader">
-    	<div class="container">
-        	<div class="content">
-            	<div class="text">
-            		<h1 style="text-align: center;">Be Vibrant, Enjoy Life, <br> <span>Book Provisio</span></h1>
-            		<p class="text-white h1" style="font-size: 25px; text-align: center;">Welcome home at Provisio Beach and Resorts.<br>Family vacations to appeal each member. <br>and a getaway to achieve your relation needs.</p>
-           			<div id="headerButton">
-           				<a class="btn3" href="http://localhost:8080/Jeffrey_provisio/registerUser.jsp">Book Now</a>
-           			</div>
-           		</div>
-       		</div>
-       		
-       			
-       		
-       		
-   		</div>
- 	</div>
-   
+	<jsp:include page="partials/header.jsp"/>
 
    <!--Modal fade for User Login-->
-   <jsp:include page="loginForm.jsp" />
+   <jsp:include page="partials/loginForm.jsp" />
 
  	<!--Modal fade for User Registration-->
- 	<jsp:include page="registration.jsp" />
+ 	<jsp:include page="partials/registration.jsp" />
  	
  	<!-- FOOTER INCLUDE  -->
- 	<jsp:include page="footer.jsp" />
+ 	<jsp:include page="partials/footer.jsp" />
 </body>
 </html>
