@@ -48,12 +48,12 @@ public class HotelDbUtil {
 			while (myRs.next()){
 
             // retrieve data from result set row
-                    int hotel_id = myRs.get("hotel_id");
-                    String hotel_name = myRs.get("hotel_name");
-                    Float price = myRs.get("price");
-                    String descrip = myRs.get("descrip");
-					String amenities = myRs.get("amenities");
-					int place_id = myRs.get("place_id");
+                    int hotel_id = myRs.getInt("hotel_id");
+                    String hotel_name = myRs.getString("hotel_name");
+                    Float price = myRs.getFloat("price");
+                    String descrip = myRs.getString("descrip");
+					String amenities = myRs.getString("amenities");
+					int place_id = myRs.getInt("place_id");
 
             // create new hotel object
 				Hotel tempHotel = new Hotel(hotel_id, hotel_name, price, descrip, amenities, place_id);
