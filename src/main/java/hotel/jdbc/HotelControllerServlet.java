@@ -1,87 +1,77 @@
+
 package hotel.jdbc;
 
+import java.sql.Statement;
 import java.io.IOException;
-import java.util.List;
+import java.io.PrintWriter;
+import java.sql.ResultSet;
 
 import javax.annotation.Resource;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
-import javax.sql.rowset.serial.SerialException;
 
-
-
-import hotel.jdbc.HotelDbUtil;
+import java.sql.Connection;
 
 /**
- * Servlet implementation class HotelControllerServlet
+ * Servlet implementation class TestServlet
  */
 @WebServlet("/HotelControllerServlet")
 public class HotelControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-    private HotelDbUtil hotelDbUtil;
-    
-    //Conn pool / Datasource
-    
-    @Resource(name="jdbc/provisio")
-    private DataSource dataSource;
-    
-	@Override
-	public void init() throws ServletException {
-		super.init();
-		
-		//create our hotel db util ... and pass in con pool/ datasource object
-		
-	try {
-        hotelDbUtil = new HotelDbUtil(dataSource);
-
-	  }
-      catch(Exception exc){
-        throw new ServletException(exc);
-
-      }
-	}
+	
+	// Define datasource/connection for Resource Injection
+	@Resource(name="jdbc/provisio")
+	private DataSource dataSource;
 
 
+
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       try{
-        // list the hotels... in MVC fashion
-        listHotels(request, response);
-       }
-       catch(Exception exc){
-        throw new ServletException(exc);
-       }
-    }
+	
+		
 
+		// Step 1: Set up the printwriter
+		// code that sends out info to the browser
+		PrintWriter out = response.getWriter();
+		response.setContentType("text/plain");
+		
 
-	private void listHotels(HttpServletRequest request, HttpServletResponse response) 
-        throws Exception {
-       // throw exceptions to 1 central calling location to handle at once
-       // Modifying the signature for listHotels
-       
-		 try{
-		        // list the hotels... in MVC fashion
-			// get hotels from db util 
-		        List<Hotel> hotels = HotelDbUtil.getHotels();
+		// Step2: Get a connection to the database
+		Connection myConn = null;
+		Statement myStmt = null;
+		ResultSet myRs = null;
+		
+		try{
+			myConn = dataSource.getConnection();
 
-		        // add hotels to the request
-		        request.setAttribute("HOTEL_LIST", hotels);  // set attribute Name and actual object/value
-		       
-		        // send to JSP page (view); send data over to jsp page
-		        RequestDispatcher dispatcher = request.getRequestDispatcher("/list-hotels.jsp");
-		        dispatcher.forward(request, response);
-		       }
-		       catch(Exception exc){
-		        throw new ServletException(exc);
-		       }
-        
+			//  Step 3: Create SQL stmts
+			String sql ="select * from hotel;";
+			myStmt = myConn.createStatement();
 
+			// Step 4: Execute SQLe query
+			// returns a result set that gets assigned to myRs
+			myRs = myStmt.executeQuery(sql);
+
+			//  Step 5: Process the result set
+			while(myRs.next()) {
+				String hotelName = myRs.getString("hotel_name");
+				out.println(hotelName);
+			}
 	}
-
+	catch(Exception exc){
+		exc.printStackTrace();
+		}
+	}
 }
+
+
+
+
 
