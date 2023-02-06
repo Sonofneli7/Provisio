@@ -10,7 +10,7 @@ import javax.sql.DataSource;
 
 public class HotelDbUtil {
 // set up reference to a datasource
-	private DataSource datasource;
+	private DataSource dataSource;
 	
 	public HotelDbUtil(DataSource theDataSource) {
 		//creating constructor
@@ -34,7 +34,7 @@ public class HotelDbUtil {
 			
 			try {
 			// get  a connection
-			myConn = datasource.getConnection();
+			myConn = dataSource.getConnection();
 
 			// create a sql stmt
 			String sql =  "select * from hotel order by hotel_name";
@@ -92,3 +92,4 @@ public class HotelDbUtil {
 	}
 	
 }
+
