@@ -36,15 +36,15 @@ List<Hotel> theHotels =
 
 <div class="places">
   <div class="clearfix">
-    <img class="img2" src="pineapple.jpg" alt="Pineapple" width="170" height="170">
+    <img class="img2" src="images/rio.jpg" alt="rio.jpg" width="170" height="170">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet...
   </div>
   <div class="clearfix">
-    <img class="img2" src="pineapple.jpg" alt="Pineapple" width="170" height="170">
+    <img class="img2" src="images/newyork.jpg" alt="rio.jpg" width="170" height="170">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet...
   </div>
   <div class="clearfix">
-    <img class="img2" src="pineapple.jpg" alt="Pineapple" width="170" height="170">
+    <img class="img2" src="images/miami.jpg" alt="rio.jpg" width="170" height="170">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet...
   </div>
 </div>
