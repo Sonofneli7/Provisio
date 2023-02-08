@@ -28,26 +28,90 @@
 	
  	
  	<!-- List all reservations from the user, may need a scriplet instead of a servlet  -->
- 	<% List<Reservation> theReservations = (List<Reservation>)request.getAttribute("reservations"); %>
+<%--  	<% List<Reservation> theReservations = (List<Reservation>)request.getAttribute("reservations"); %>
+ --%>
+ 	
+ 	
+ 	
+ <section class="banner">
+    <h2>BOOK YOUR ROOM NOW</h2>
+    <div class="card-container">
+        <div class="card-img">
+            <!-- image here -->
 
+        </div>
+        <div class="card-content">
+            <h3>Reservation</h3>
+            <form>
+                <div class="form-row">
+                    <select name="Check-in ">
+                        <option value="day-select">Check-in </option>
+                        <option value="day-select">Sunday</option>
+                        <option value="day-select">Monday</option>
+                        <option value="day-select">Tuesday</option>
+                        <option value="day-select">Wednesday</option>
+                        <option value="day-select">Thursday</option>
+                        <option value="day-select">Friday</option>
+                        <option value="day-select">Saturday</option>
+                    </select>
+                    <select name="hours" >
+                        <option value="day-select">Select Time</option>
+                        <option value="hour-select">6:00 am</option>
+                        <option value="hour-select">8:00 am</option>
+                        <option value="hour-select">10:00 am</option>
+                        <option value="hour-select">12:00 pm</option>
+                        <option value="hour-select">2:00 pm</option>
+                        <option value="hour-select">4:00 pm</option>
+                        <option value="hour-select">6:00 pm</option>
+                        <option value="hour-select">8:00 pm</option>
+                        <option value="hour-select">10:00 pm</option>
+                        <option value="hour-select">12:00 am</option>
+                    </select>
+                     </div>
+                    <div class="form-row">
+                        <select name="Check-out">
+                            <option value="day-select">Check-out</option>
+                            <option value="day-select">Sunday</option>
+                            <option value="day-select">Monday</option>
+                            <option value="day-select">Tuesday</option>
+                            <option value="day-select">Wednesday</option>
+                            <option value="day-select">Thursday</option>
+                            <option value="day-select">Friday</option>
+                            <option value="day-select">Saturday</option>
+                        </select>
+                        <select name="hours" >
+                            <option value="day-select">Select Time</option>
+                            <option value="hour-select">6:00 am</option>
+                            <option value="hour-select">8:00 am</option>
+                            <option value="hour-select">10:00 am</option>
+                            <option value="hour-select">12:00 pm</option>
+                            <option value="hour-select">2:00 pm</option>
+                            <option value="hour-select">4:00 pm</option>
+                            <option value="hour-select">6:00 pm</option>
+                            <option value="hour-select">8:00 pm</option>
+                            <option value="hour-select">10:00 pm</option>
+                            <option value="hour-select">12:00 am</option>
+                        </select>
+                        </div>
+                    <div class="form-row">
+                        <input type="text" placeholder="Full Name">
+                        <input type="text" placeholder="Phone Number">
+                    </div>
+                    <div class="form-row">
+                        <input type="number" placeholder="Adults" min="10">
+                        <input type="number" placeholder="Children" min="10">
+                    </div>
+                    <input type="submit"  value="RESERVE ROOM">
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
  	
  	
  	
  	
- 	<div id="wrapper">
- 		<div class="my-5 px-5">
- 			<h3 class="text-center fw-bold h-line">Reservations</h3>
- 			<br><br>
- 		</div>
- 	</div>
- 	
- 	
- 	
- 	
- 	
- 	
- 	
- 	
+ <%-- 	
  	<div class="">
  		<% for (Reservation res : theReservations) { %>
  			<div class="card stretched-link" style="width:80%; padding:50px">
@@ -62,7 +126,7 @@
  			</div>
  		<% } %>
  	</div>
- 	
+ 	 --%>
  	
  	
  	
@@ -84,7 +148,8 @@
  	<!-- FOOTER INCLUDE  -->
  	<jsp:include page="partials/footer.jsp" />
  	
- 	
+
+
 
 </body>
 </html>
