@@ -30,13 +30,13 @@
                 <div class="row">
                     <div class="col-lg-12">
                       <div class="row align-items-center">
-                            <div class="col-lg-3 col-lg-3 col-sm-12 ">
+                            <div class="col-lg-3 col-lg-3 col-sm-12 px-0 ">
                                 <input type="date" class="form-control search-slt"  placeholder="Check-in">
                             </div>
-                            <div class="col-lg-3 col-lg-3 col-sm-12 ">
+                            <div class="col-lg-3 col-lg-3 col-sm-12 px-0 ">
                                 <input type="date" class="form-control search-slt"  placeholder="Check-out">
-                            </div>
-                            <div class="col-lg-3 col-lg-3 col-sm-12 ">
+                            </div> 
+                            <div class="col-lg-3 col-lg-3 col-sm-12 px-0">
                                 <select class="form-control search-slt" id="exampleFormControlSelect1">
                                     <option>Select Hotel</option>
                                     <option>Old Key West</option>
