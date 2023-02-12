@@ -19,21 +19,24 @@
 
  	<!--Modal fade for User Registration-->
  	 <jsp:include page="partials/registration.jsp" />
-	
-	
+
+
+
     <section class="search-sec">
         <div class="container">
+            
             <form action="#" method="post" novalidate="novalidate">
+                <h1> Reservation Lookup</h1>
                 <div class="row">
                     <div class="col-lg-12">
-                      <div class="row align-items-start">
-                            <div class="col-lg-3 col-lg-3 col-sm-12 p-0">
+                      <div class="row align-items-center">
+                            <div class="col-lg-3 col-lg-3 col-sm-12 ">
                                 <input type="date" class="form-control search-slt"  placeholder="Check-in">
                             </div>
-                            <div class="col-lg-3 col-lg-3 col-sm-12 p-0">
+                            <div class="col-lg-3 col-lg-3 col-sm-12 ">
                                 <input type="date" class="form-control search-slt"  placeholder="Check-out">
                             </div>
-                            <div class="col-lg-3 col-lg-3 col-sm-12 p-0">
+                            <div class="col-lg-3 col-lg-3 col-sm-12 ">
                                 <select class="form-control search-slt" id="exampleFormControlSelect1">
                                     <option>Select Hotel</option>
                                     <option>Old Key West</option>
@@ -42,9 +45,10 @@
                                    
                                 </select>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-12 p-3">
-                                <button type="button" class="btn wrn-btn">Search</button>
+                            <div class="col-lg-3 col-lg-3 col-sm-12 ">
+                                <button type="button" class="btn btn-warning btn-lg">SEARCH</button>
                             </div>
+                              </div>
                         </div>
                     </div>
                 </div>
@@ -52,6 +56,13 @@
         </div>
     </section>
     
+    
+
+  
+
+
+  
+
     
  	<!-- FOOTER INCLUDE  -->
  	<jsp:include page="partials/footer.jsp" />
