@@ -19,15 +19,16 @@
 
 <body>
 <!-- NAVBAR JSP INCLUDE FOR FLEXIBILITY -->
-	<jsp:include page="partials/navbar.jsp" />
+	<jsp:include page="./partials/navbar-two.jsp" />
 	
 	<!--Modal fade for User Login-->
-   <jsp:include page="partials/loginForm.jsp" />
+   <jsp:include page="./partials/forms/loginForm.jsp" />
 
  	<!--Modal fade for User Registration-->
- 	<jsp:include page="partials/registration.jsp" />
+ 	<jsp:include page="./partials/forms/registration.jsp" />
  	
- 
+ 	<!-- NAVBAR JSP INCLUDE FOR FLEXIBILITY -->
+	<jsp:include page="./partials/header.jsp"/>
 	
 	
 	
@@ -35,31 +36,25 @@
 	
 	
 	
-	 <title>-About Provisio</title>
-</head>
-<body>
+	<body>
 
                         <!-- About Company-->
                         <div class="my-5 px-5">  
                             <h3 class="text-center fw-bold h-font">ABOUT OUR COMPANY</h3>
-                            <div class="h-line bg-dark"></div>
+                            <div class="h-line">
                                    <p class="text-center mt-3 ">
                                     Provisio Hotels Beach and Resort was established in 2022 by a group of software developers
                                     turned land developers. We offer multiple locations throughout the United States. We take pride in accommodating
                                     remote work, extended stays, business, and pleasure for our loyal customers. Our staff is built on Integrity, 
                                     Inclusion, Growth, and most of all a good time with great customer service
                                    </p>
-                               </div>
-                          </div> 
-                       </div>
-                   </div>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
+                            </div>
+                        </div>
+                         
+                 
                
                    <div class="container">
-                     <div class="row justify-content-between align-items-center"> 
+                     <div class="row align-items-center"> 
                        <div class="col-lg-6 col-md-5 mb-4 order-lg-1 order-md-1 order-2">  
                            <h3 class="mb-3">Message from our C.E.O.</h3>
                            <p>
@@ -74,5 +69,17 @@
                      </div>  
                    </div>
 
+</body>
+
+
+
+
+
+
+
+
+ 	<!-- FOOTER INCLUDE  -->
+ 	<jsp:include page="./partials/footer.jsp" />
+	
 </body>
 </html>

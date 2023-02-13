@@ -19,13 +19,13 @@
 
 
 	<!-- NAVBAR JSP INCLUDE FOR FLEXIBILITY -->
-	<jsp:include page="partials/navbar.jsp" />
+	<jsp:include page="./partials/navbar-two.jsp" />
 	
 	  <!--Modal fade for User Login-->
-   <jsp:include page="partials/loginForm.jsp" />
+   <jsp:include page="./partials/forms/loginForm.jsp" />
 
  	<!--Modal fade for User Registration-->
- 	<jsp:include page="partials/registration.jsp" />
+ 	<jsp:include page="./partials/forms/registration.jsp" />
 	
 
 <!--  	
@@ -80,17 +80,26 @@
  		<% for (Hotel hot : theHotels) { %>
  			<div class="card" style="width:80%; padding:50px">
  				<div class="card-body">
- 					<h4>Hotel Name: </h4><h5><%= hot.getHotel_name() %></h5>
+ 					<h4 value=<%= hot.getHotel_id() %> >Hotel Name: </h4><h5><%= hot.getHotel_name() %></h5>
  					<h4>Price: </h4><h5><%= hot.getPrice() %></h5>
  					<h4>Amenities: </h4><h5><%= hot.getAmenities() %></h5>
  					<h4>Description: </h4><h3><%= hot.getDescrip() %></h3>
+ 					
+ 					<% if (session.getAttribute("first_name") == null){ %>
+ 						<a  class="btn" id="btn1"data-bs-toggle="modal" data-bs-target="#loginModal">Log In To Reserve</a>
+ 					<% } else { %>
+ 					    <form action="booking" method="POST">
+ 					    <input type="hidden" name="hotel_id" value="<%= hot.getHotel_id() %>" ><br>
+ 					    <input type="hidden" name="hotel_name" value="<%= hot.getHotel_name() %>" ><br>
+ 					    <input type="hidden" name="hotel_amenities" value="<%= hot.getAmenities() %>" ><br>
+ 					    <input type="hidden" name="hotel_descrip" value="<%= hot.getDescrip() %>" ><br>
+ 						<button type="submit" class="btn">Reserve Hotel</button>
+ 						</form>
+ 					<% } %> 
  				</div>
  				
- 					<% if (session.getAttribute("first_name") == null){ %>
- 						<a class="btn" id="btn1"data-bs-toggle="modal" data-bs-target="#loginModal">Log In To Reserve</a>
- 					<% } else { %>
- 						<a href="booking.jsp">Reserve Hotel</a>
- 					<% } %> 
+ 				
+ 					
  			</div>
  		<% } %>
  	</div>
@@ -98,13 +107,11 @@
 
 
 
-
-
-
+<!-- Resource: how to pass down data from one jsp to another. Having a servlet in between. Check out this article: https://stackoverflow.com/questions/45802338/how-can-i-send-data-from-one-jsp-to-other-pressing-a-button -->
   
   
  	<!-- FOOTER INCLUDE  -->
- 	<jsp:include page="partials/footer.jsp" />
+ 	<jsp:include page="./partials/footer.jsp" />
  	
  	
  	

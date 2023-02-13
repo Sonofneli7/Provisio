@@ -10,27 +10,34 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <title>Provisio Beach and Resorts -Contact Us Page </title>
+    <title>Provisio Contact Us Page </title>
 </head>
-<body class="bg-light" id="contactbackground">
+<body>
 <!-- NAVBAR JSP INCLUDE FOR FLEXIBILITY -->
-	<jsp:include page="partials/navbar.jsp" />
+	<jsp:include page="./partials/navbar-two.jsp" />
 	
 	<!--Modal fade for User Login-->
-   <jsp:include page="partials/loginForm.jsp" />
+   <jsp:include page="./partials/forms/loginForm.jsp" />
 
  	<!--Modal fade for User Registration-->
- 	<jsp:include page="partials/registration.jsp" />
+ 	<jsp:include page="./partials/forms/registration.jsp" />
+ 	
+ 	<!-- NAVBAR JSP INCLUDE FOR FLEXIBILITY -->
+	<jsp:include page="./partials/header.jsp"/>
+ 	
+ 	
  	
  
- 	
- 	
- 	
- 	
-<div class="my-5 px-4">
+	
+
+
+
+
+
+	<div class="my-5 px-4">
     <h2 class="fw-bold h-font text-center"> CONTACT US</h2>
     <div class="h-line bg-dark"></div>
-    <p class="text-center mt-3 mb-3  color-white" style=" margin-bottom: 20%; text-align-center; font-size: 22px;">
+    <p class="text-center mt-3 mb-3  color-white" style=" margin-bottom: 20%; width:70%; text-align-center; margin: 0 auto; font-size: 22px;">
 		At Provsio Beach and Resorts we always want to hear how we can better serve our guests.
 		Get in contact with us through our many avenues. 
 		If there anything that we can do to make your stay better,
@@ -68,34 +75,76 @@
             </div>
                 <div class="col-6 col-md-6 mb-5 px-4">
                     <div class="bg-white rounded shadow p-4"> 
-                     <form>
-                        <h5> Send a message</h5>
+                     <form id="contact-form">
+                        <h4 style="text-align: center">Fill out the form below:</h4>
                         <div class="mt-3">
                             <label class="form-label" style="font-weight: 500;">Name</label>
-                            <input type="text" class="form-control shadow-none" >
+                            <input type="text" name="user_name" class="form-control shadow-none" required>
                         </div>
                         <div class="mt-3">
                             <label class="form-label" style="font-weight: 500;">Email</label>
-                            <input type="email" class="form-control shadow-none" >
+                            <input type="email" name="email" class="form-control shadow-none" required>
                         </div>
                         <div class="mt-3">
                             <label class="form-label" style="font-weight: 500;">Subject</label>
-                            <input type="text" class="form-control shadow-none" >
+                            <input type="text" name="subject" class="form-control shadow-none" required>
                         </div>
                         <div class="mt-3">
                             <label class="form-label" style="font-weight: 500;">Message</label>
-                            <textarea class="form-control shadow-none" rows="5" style="resize: none;"></textarea>
+                            <textarea class="form-control shadow-none" name="message" rows="5" style="resize: none;" required></textarea>
                         </div>
-                        <button type="submit" class="btn-primary mt-3 outline shadow">SEND</button>
+                        <button type="submit" style="background: #149ddd; border:0; padding: 10px 24px; color: #fff; transition: 0.4s; border-radius: 4px;" id="sendButton" onclick='sendMail()' class="btn-primary mt-3 outline shadow">SEND</button>
                      </form>         
             </div>
         </div>
     </div>
     </div>
-	
+ 	
+ 	
+ 	
+ 	<!-- Add EmailJS Functionality to send email to my email -->
+ 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init('user_RYevFp6mtIxGCcmTimhuP');
+        })();
+    </script>
+    <script type="text/javascript">
+    
+    function sendMail() {
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // This method is provided within documentation: https://www.emailjs.com/docs/sdk/send-form/
+            emailjs.sendForm('service_3n8xbix', "contact_form", '#contact-form')
+                .then(function() {
+                    console.log('SUCCESS!');
+                    // Get the button element
+                    let success = document.getElementById("sendButton");
+                    // Get the contact-form
+                    let contactForm = document.getElementById('contact-form');
+                    // reset will clear the form
+                    contactForm.reset();
+                    // Underneath will change the html of the button to ay Successfully Sent if succesful
+                    success.innerHTML = "Successfully Sent";
+                    // Change the backgroundColor of the button if successful
+                    success.style.backgroundColor = "green";
+                    // Within 3 seconds, the page will reload
+                    setInterval(() => window.location.reload(true), 3000)
+                    // If there is an error, it will log "FAILED..., and console log the error"
+                }, function(error) {
+                    console.log('FAILED...', error);
+                });
+        });
+    }
+    
+    </script>
+ 	
+ 	
+ 	
  	
  	<!-- FOOTER INCLUDE  -->
- 	<jsp:include page="partials/footer.jsp" />
+ 	<jsp:include page="./partials/footer.jsp" />
  	
  	
  	
