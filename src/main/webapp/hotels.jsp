@@ -65,7 +65,7 @@
 
 	<div id="wrapper">
  		<div class="my-5 px-5">
- 			<h1 class="text-center fw-bold h-line">Hotels</h1>
+ 			<h3 class="text-center fw-bold h-line">Hotels</h3>
  			<br><br>
  		</div>
  	</div>
@@ -76,9 +76,9 @@
 
 
 
-	<div style="">
+	<div style="margin: 0 auto; width: 60%">
  		<% for (Hotel hot : theHotels) { %>
- 			<div class="card" style="width:80%; padding:50px">
+ 			<div class="card py-3" style="padding:50px; margin: 30px 0px">
  				<div class="card-body">
  					<h4 value=<%= hot.getHotel_id() %> >Hotel Name: </h4><h5><%= hot.getHotel_name() %></h5>
  					<h4>Price: </h4><h5><%= hot.getPrice() %></h5>
@@ -93,7 +93,7 @@
  					    <input type="hidden" name="hotel_name" value="<%= hot.getHotel_name() %>" ><br>
  					    <input type="hidden" name="hotel_amenities" value="<%= hot.getAmenities() %>" ><br>
  					    <input type="hidden" name="hotel_descrip" value="<%= hot.getDescrip() %>" ><br>
- 						<button type="submit" class="btn">Reserve Hotel</button>
+ 						<button type="submit" class="btn" id="btn2">Reserve Hotel</button>
  						</form>
  					<% } %> 
  				</div>

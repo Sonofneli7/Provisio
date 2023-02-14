@@ -1,5 +1,5 @@
-<!-- <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%> -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
  <html>
  <head>
@@ -45,7 +45,7 @@
        </script>
 
        </head>
-       <body id="loyaltybody">
+       <body>
        <h1 class="loyalty">Provisio Loyalty Points</h1>
 
        <div class="line"></div>
@@ -59,7 +59,7 @@
                <p>US Resorts</p>
                <p>Points earned: 200pts</p>
 
-               <a href="#" id="getpoints" target="_blank">Get Points</a>
+               <a href="#" target="_blank">Get Points</a>
            </div>
            <div class="pointsdesc mx-5">
                <img src="images/london.jpg" alt="500pts">
@@ -67,7 +67,7 @@
                <p>Price Point: $750 per night</p>
                <p>US and Int'l Resort</p>
                <p>Points earned: 500pts</p>
-               <a href="#" id="getpoints" target="_blank">Get Points</a>
+               <a href="#" target="_blank">Get Points</a>
            </div>
                <div class="pointsdesc">
                <img src="images/newyork.jpg" alt="1000 pts">
@@ -75,7 +75,7 @@
                <p>Price Point: $1200 per night</p>
                <p>US and Int'l Resort</p>
                <p>Points earned: 1000pts</p>
-               <a href="#" id="getpoints" target="_blank">Get Points</a>
+               <a href="#" target="_blank">Get Points</a>
            </div>
 
        </body>
