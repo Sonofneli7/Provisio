@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%> 
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,9 +20,52 @@
 <!-- NAVBAR JSP INCLUDE FOR FLEXIBILITY -->
 	<jsp:include page="./partials/navbar-two.jsp" />
 	
+  <div class="bg-image"
+     style="background-image: url('images/home.png');
+            height: 100vh">
 
- 	<h1>Rewards Page</h1>
- 	
+
+ 	<h1 class="text-center text-white">Your Rewards</h1>
+  <hr class="border border-primary border-3 opacity-75">
+ <table class="table table-hover table-bordered">
+ <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Reservation</th>
+      <th scope="col">Location</th>
+      <th scope="col">Check-in</th>
+      <th scope="col">Check-out</th>
+      <th scope="col">Rewards Points</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="table-primary">
+      <th scope="row">Name from reservation</th>
+      <td>Randomized Reservation#</td>
+      <td>Location chosen</td>
+      <td> Recorded Check-in</td>
+      <td> Recorded Check-out</td>
+      <td> Points gained by room style</td>
+    </tr>
+    <tr class="table-secondary">
+      <th scope="row">Name from Reservation</th>
+      <td>Randomized Reservation#</td>
+      <td>Location Chosen</td>
+      <td> Recorded Check-in</td>
+      <td> Recorded Check-out</td>
+      <td> Points gained by room style</td>
+    </tr>
+    <tr class="table-success">
+      <th scope="row">Name from Reservation</th>
+      <td>Randomized Reservation#</td>
+      <td>Location Chosen</td>
+      <td> Recorded Check-in</td>
+      <td> Recorded Check-out</td>
+      <td> Points gained by room style</td>
+    </tr>
+  </tbody>
+</table>
+</div>
  	
  	<!-- FOOTER INCLUDE  -->
  	<jsp:include page="./partials/footer.jsp" />
