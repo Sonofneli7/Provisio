@@ -25,16 +25,18 @@
 	<!-- NAVBAR JSP INCLUDE FOR FLEXIBILITY -->
 	<jsp:include page="./partials/navbar-two.jsp" />
 
-	<h3>These Top Locations are only a click away!</h3>
-	<div class="row row-cols-1 row-cols-md-4 gx-2 m-5">
+	<h3 class="fw-bold" >These Top Locations are only a click away!</h3>
+	<h4 class="fw-bold mt-5">Top Cities</h4>
+	
+	<div class="row row-cols-1 row-cols-md-4 gx-2 mt-0 m-5">
 		<div class="col">
-			<div class="location-card h-75">
+			<div class="location-card h-75 rounded">
 				<img src="images/orlando.jpg" class="card-img-top-locations rounded"
 					alt="Orlando">
-				<div class="card-body text-center">
-					<h5 class="card-title mt-2">Orlando</h5>
-					<p class="card-text">This is</p>
-					<a href="#" class="btn btn-primary">Choose Location</a>
+				<div class="card-body text-center ">
+					<h5 class="card-title  mt-2 fw-bold fst-italic">Orlando <br> Old Key Provisio</h5>
+					<p class="card-text mt-2 fst-italic">325 S Orange Ave <br> Orlando, FL 32801 <br> (407) 313-9000 </p>
+					<a href="booking.jsp" class="btn btn-primary">RESERVE NOW</a>
 				</div>
 			</div>
 		</div>
@@ -42,10 +44,11 @@
 			<div class="location-card h-75">
 				<img src="images/miami.jpg" class="card-img-top-locations rounded" 
 				alt="miami">
+				<a href="booking.jsp"></a>
 				<div class="card-body text-center">
-					<h5 class="card-title mt-2">Miami</h5>
-					<p class="card-text">This is</p>
-					<a href="#" class="btn btn-primary">Choose Location</a>
+					<h5 class="card-title text-center mt-2 fw-bold fst-italic"> Miami <br> Proviso South Beach</h5>
+					<p class="card-text mt-2 fst-italic"> 801 Collins Ave <br> Miami Beach, FL 33139 <br> (305) 531-2222</p>
+					<a href="booking.jsp" class="btn btn-primary">RESERVE NOW</a>
 				</div>
 			</div>
 		</div>
@@ -54,9 +57,9 @@
 				<img src="images/newyork.jpg" class="card-img-top-locations rounded"
 					alt="lasvegas">
 				<div class="card-body text-center">
-					<h5 class="card-title mt-2">New York</h5>
-					<p class="card-text ">This is a longer</p>
-					<a href="#" class="btn btn-primary">Choose Location</a>
+					<h5 class="card-title mt-2 fw-bold fst-italic"> New York <br> The Grand Provisio</h5>
+					<p class="card-text mt-2 fst-italic"> 870 7th Ave <br> New York, NY 10019 <br> (212) 247-8000  </p>
+					<a href="booking.jsp" class="btn btn-primary">RESERVE NOW</a>				
 				</div>
 			</div>
 		</div>
@@ -64,24 +67,24 @@
 			<div class="location-card h-75">
 				<img src="images/lasvegas.jpg" class="card-img-top-locations rounded"
 					alt="newyork">
-				<div class="card-body text-center">
-					<h5 class="card-title mt-2">Las Vegas</h5>
-					<p class="card-text">This is a longer</p>
-					<a href="#" class="btn btn-primary">Choose Location</a>
+				<div class="card-body text-center ">
+					<h5 class="card-title mt-2 fw-bold fst-italic">Las Vegas <br> MGM Provisio </h5>
+					<p class="card-text mt-2 fst-italic"> 2535 S Las Vegas Blvd <br> Las Vegas, NV 89109 <br> (702) 761-7000  </p>
+					<a href="booking.jsp" class="btn btn-primary">RESERVE NOW</a>
 				</div>										
 			</div>	
 		</div>
 	</div>
-<h3 class="text-start">Top Destinations</h3>
-<div class="row row-cols-1 row-cols-md-4 gx-2 m-5">
+<h4 class="text-start fw-bold">Top Destinations</h4>
+<div class="row row-cols-1 row-cols-md-4 gx-2 mt-0 m-5">
 		<div class="col">
 			<div class="location-card h-75">
 				<img src="images/newdheli.jpg" class="card-img-top-locations rounded"
 					alt="newdheli">
-				<div class="card-body text-center">
-					<h5 class="card-title mt-2">New Dheli</h5>
-					<p class="card-text">This is</p>
-					<a href="#" class="btn btn-primary">Choose Location</a>
+				<div class="card-body text-center ">
+					<h5 class="card-title mt-2 fw-bold fst-italic">New Dheli <br>Taj Provisio </h5>
+					<p class="card-text"> 106, Babar Rd <br> Delhi 110001, India <br> +91 91118 91115  </p>
+					<a href="booking.jsp" class="btn btn-primary">RESERVE NOW</a>
 				</div>
 			</div>
 		</div>
@@ -90,9 +93,9 @@
 				<img src="images/rio.jpg" class="card-img-top-locations rounded"
 				alt="rio">
 				<div class="card-body text-center">
-					<h5 class="card-title mt-2">Rio</h5>
-					<p class="card-text">This is</p>
-					<a href="#" class="btn btn-primary">Choose Location</a>
+					<h5 class="card-title mt-2 fw-bold fst-italic">Rio de Janiero <br> Astoria Provisio</h5>
+					<p class="card-text">TAv. Atlântica, 1020 <br> Copacabana, Rio de Janeiro Brazil <br> +55 21 3501-8000  </p>
+					<a href="booking.jsp" class="btn btn-primary">RESERVE NOW</a>
 				</div>
 			</div>
 		</div>
@@ -101,20 +104,20 @@
 				<img src="images/laketahoe.jpg" class="card-img-top-locations rounded"
 					alt="laketahoe">
 				<div class="card-body text-center">
-					<h5 class="card-title mt-2">Lake Tahoe</h5>
-					<p class="card-text ">This is a longer</p>
-					<a href="#" class="btn btn-primary">Choose Location</a>
+					<h5 class="card-title mt-2 fw-bold fst-italic">Lake Tahoe <br> Provisio Lodge </h5>
+					<p class="card-text ">6589 N Lake Blvd Box 188 <br> Tahoe Vista, CA 96148 <br> (530) 546-4281  </p>
+					<a href="booking.jsp" class="btn btn-primary">RESERVE NOW</a>
 				</div>
 			</div>
 		</div>
 		<div class="col">
 			<div class="location-card h-75">
-				<img src="images/lasvegas.jpg" class="card-img-top-locations rounded"
+				<img src="images/venice.jpg" class="card-img-top-locations rounded"
 					alt="la">
 				<div class="card-body text-center">
-					<h5 class="card-title mt-2">Las Vegas</h5>
-					<p class="card-text">This is a longer</p>
-					<a href="#" class="btn btn-primary">Choose Location</a>
+					<h5 class="card-title mt-2 fw-bold fst-italic">Italy <br> Provio Venecia</h5>
+					<p class="card-text">Riva del Ferro, 5149 <br>30124 Venezia VE, Italy <br> +39 041 520 9166 </p>
+					<a href="booking.jsp" class="btn btn-primary">RESERVE NOW</a>
 				</div>										
 			</div>	
 		</div>
