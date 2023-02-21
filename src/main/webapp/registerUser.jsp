@@ -14,8 +14,6 @@
 </head>
 <body>
 
-<section>
-
 <!-- NAVBAR JSP INCLUDE FOR FLEXIBILITY -->
 	<jsp:include page="./partials/navbar-two.jsp" />
 
@@ -69,7 +67,7 @@
             </div>
         </form>
     </div>
-</section>
+
 
 <!-- FOOTER INCLUDE  -->
  	<jsp:include page="./partials/footer.jsp" />
