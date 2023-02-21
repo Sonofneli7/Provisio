@@ -25,19 +25,26 @@
 						<a href="registerUser.jsp" class="d-inline-block mb-2 text-white text-decoration-none ">Register</a><br>
 					<% } else { %>
 						 <a href="reservations" class="d-inline-block mb-2 text-white text-decoration-none ">Reservations</a><br>
-						 <a href="rewards.jsp" class="d-inline-block mb-2 text-white text-decoration-none ">Rewards</a><br>
+						 <form action="rewards" method="POST" id="myForm">
+						 	<input type="hidden" name="user_id" value="<%=session.getAttribute("user_id") %>" />
+  							<a style="cursor: pointer;" class="d-inline-block mb-2 text-white text-decoration-none" onclick="document.getElementById('myForm').submit()">Rewards</a>
+						 </form>
+						 <br>
 					<% } %>
                 </div> 
                 <div class="col-lg-3 bg-primary" id="thirdDiv">
                 <h5 class="mb-3 text-white h4">Follow Us</h5>
                 		<a href="contact.jsp" class="d-inline-block mb-3 text-white text-decoration-none ">
-                			<i class="bi bi-facebook me-1"></i>Contact Us
+                			<i class="bi bi-envelope-fill"></i> Contact Us
                 		</a><br>
                 		<a href="https://www.facebook.com" class="d-inline-block mb-3 text-white text-decoration-none">
                             <i class="bi bi-facebook me-1"></i> Facebook
                         </a><br>
                         <a href="https://www.linkedin.com/" class="d-inline-block mb-3 text-white text-decoration-none">
                             <i class="bi bi-linkedin me-1"></i> Linkedin
+                        </a><br>
+                        <a href="locations" class="d-inline-block mb-3 text-white text-decoration-none">
+                            <i class="bi bi-linkedin me-1"></i> Locations
                         </a><br>
                          
                 </div>

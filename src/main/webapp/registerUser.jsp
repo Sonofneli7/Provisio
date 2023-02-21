@@ -14,6 +14,7 @@
 </head>
 <body>
 
+<section>
 
 <!-- NAVBAR JSP INCLUDE FOR FLEXIBILITY -->
 	<jsp:include page="./partials/navbar-two.jsp" />
@@ -25,7 +26,7 @@
  	<jsp:include page="./partials/forms/registration.jsp" />
  	
  	
-    <section>
+
 	<div class="modal-content">
     	<form action="register" method="POST">
     	<div id="backToHomepageLink">
@@ -41,7 +42,6 @@
                 <span class="badge rounded-pill bg-light text-dark mb-3 text-wrap lh-base">
                    Note: Details must match with your form of I.D.
                 </span>
-
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-6 ps-0 mb-3">

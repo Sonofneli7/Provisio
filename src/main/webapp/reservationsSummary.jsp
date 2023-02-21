@@ -27,10 +27,23 @@
  	<jsp:include page="./partials/forms/registration.jsp" />
  	
  	
+ 	<!-- Checking if there is a session, if there isn't, user does not have access to go to the path -->
+ 	<% if (session.getAttribute("first_name") == null){ 
+ 		response.sendRedirect("index.jsp");
+ 	} else { %>
+ 	
+ 	
+ 	
+ 	
+ 	
  	<% if (request.getParameter("submit") != null) { %>
 		<jsp:include page="./partials/alerts/reservationAlert.jsp" />
 	<% } %>
 	
+	
+	<% if (request.getParameter("cancelled") != null) { %>
+		<jsp:include page="partials/alerts/deletedSuccess.jsp" />
+	<% } %>
 	
  	
  	<!-- List all reservations from the user, may need a scriplet instead of a servlet  -->
@@ -46,12 +59,17 @@
  		</div>
  	</div>
  	
+ 	
+ 	<% if (theReservations.isEmpty() == false) { %>
+ 	
 	 <!-- NAVBAR JSP INCLUDE FOR FLEXIBILITY -->
 	<jsp:include page="partials/forms/reservationlookup.jsp" />
+	
+	
  	
  	<div style="margin: 0 auto; width: 60%">
  		<% for (Reservation res : theReservations) { %>
- 			<div class="card py-3" style="margin: 30px 0px; padding:50px">
+ 			<div class="card py-3 grow" style="margin: 30px 0px; padding:50px">
  				<div class="card-body">
  				    <p hidden value=<%= res.getReservation_id() %>></p>
  					<h4>Check In: </h4><h5><%= res.getCheck_in() %></h5>
@@ -72,7 +90,6 @@
  					<input type="hidden" name="room_type" value="<%= res.getRoom_type() %>" />
  					<input type="hidden" name="confirmation_code" value="<%= res.getConfirmation_code() %>" />
  					<input type="hidden" name="instructions" value="<%= res.getInstructions() %>" />
- 					
  					<input type="submit" name="submit" id="btn2" value="View Reservation" />
  				</form>
  				
@@ -80,7 +97,11 @@
  		<% } %>
  	</div>
  	
- 	
+ 	<% } else { %>
+ 	<div>
+ 	<h1>There are no reservations</h1>
+ 	</div>
+ 	<% } %>
  	
  	
  	
@@ -94,7 +115,7 @@
 		
 		
 		
-		
+		<% } %>
 		
 		
  	

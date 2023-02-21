@@ -152,9 +152,9 @@ nav a {
 }
 
 #footer {
-	background-color: #0d6efd;
-	padding: 30px 100px
+	padding: 30px 100px;
 }
+
 
 #footer div{
 	padding: 0;
@@ -296,8 +296,43 @@ input[type=submit]{
 }
 
 
+#values {
+	padding: 50px 100px;
+	height: auto;
+}
+
+#touristicPlaces {
+	height: 75rem;
+}
+
+.aboutParagraph {
+	margin: 0 auto;
+}
+
+#location-image {
+	width: 100%;
+}
+
+.location-parent-div {
+	/* display: flex; */
+	margin: 0 auto;
+	height: auto;
+	
+}
+
+ .flex-child-element {
+  	margin: 10px;
+  	width: 100%;
+  	text-align: center;
+  	padding: 25px;
+  	height: auto;
+}
+
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.1); }
 
 
+/* Copied in, will comment if code is hurting other code */
 
 .height{
      height: 100vh;
@@ -440,13 +475,13 @@ input[type=submit]{
      margin-bottom: 4%
  }
 
- img{
+ #loyaltyPageImage{
      width: 100%;
      object-fit: cover;
      border-radius: 10px 10px 0px 0px;
      margin-bottom: 0%;
      height: 36%;
- }
+ } 
 
 
 
@@ -471,11 +506,11 @@ input[type=submit]{
  }
 
 
- p{
+ /* p{
      left: 10%;
      position: relative;
      font-family: sans-serif;
- }
+ } */
 
  .lin2{
      top: -49%;
@@ -490,7 +525,7 @@ input[type=submit]{
  }
 
 
-Comment out the below code that is affecting the navbar buttons as well. Change them to be a specific id to the a tags or a specific class to the elements
+/* Comment out the below code that is affecting the navbar buttons as well. Change them to be a specific id to the a tags or a specific class to the elements */
   #getpoints{
      font-family: 'Montserrat', sans-serif;
      font-weight: 500;
@@ -528,7 +563,7 @@ Comment out the below code that is affecting the navbar buttons as well. Change 
      border:none;
      font-size: 15px;
  }
-
+ 
  #locations{
     background-color: dodgerblue;
  }
@@ -540,5 +575,3 @@ Comment out the below code that is affecting the navbar buttons as well. Change 
 .location-btn{
     text-align: center;
 }
-
-
