@@ -26,15 +26,24 @@
  	} else { %>
 
 
-
- 	<h1>Rewards Page</h1>
+	
+ 	
  		<% List<RewardsRes> resList = (List<RewardsRes>)request.getAttribute("rewardsResList"); %>
+ 		
+ 		<div id="wrapper">
+ 		<div style="margin-top: 100px">
+ 			<h3 class="text-center fw-bold h-line">Rewards</h3>
+ 			
+ 			<br><br>
+ 			<h2 class="text-center fw-bold h-line"><%=session.getAttribute("first_name")%> <%=session.getAttribute("last_name") %></h2>
+ 		</div>
+ 	</div>
  		
  		<div style="width:60%; text-align: right; margin: 0 auto;">
  			<p class="justify-content-end">Total Points: <%=request.getAttribute("totalPoints") %></p>
  		</div>
  		
- 	<div style="margin: 0 auto; width: 65%; text-align: center;">
+ 	<div style="margin: 0 auto; width: 75%; text-align: center;">
  			<table class="table table-hover table-bordered">
  				<thead>
     				<tr>
@@ -82,6 +91,17 @@
     	</div>
 
  	<% } %>
+ 	
+ 	
+ 	
+ 		<div id="values">
+	<!-- NAVBAR JSP INCLUDE FOR FLEXIBILITY -->
+	<jsp:include page="partials/values.jsp"/>
+	</div>
+	
+	
+	<!-- NAVBAR JSP INCLUDE FOR FLEXIBILITY -->
+	<jsp:include page="partials/touristicPlaces.jsp"/>
  	
  	
  	<!-- FOOTER INCLUDE  -->
