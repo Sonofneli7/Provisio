@@ -30,28 +30,61 @@
 	
 	
 	<div class="container" style="padding: 25px 50px 75px 50px;">
-	<h1>Here are you results</h1>
+	<h3 style= "text-align:center">Your Reservation</h3>
 	
-	<h3>Check In</h3>
-	<input type="hidden" value="<%= request.getAttribute("reservation_id") %>" />
-	<h4><%= request.getAttribute("check_in") %></h4>
+	<table class="table table-striped table-hover">
+		<tr>
+		
+			<th> Check In </th>
+			<th> Check out </th>
+			<th> Adults </th>
+			<th> Children </th>
+			<th> Room Type</th>
+			<!-- <th> Amenities</th>   add to the sql table for booking -->
+			<th> Confirmation Code</th>
+			<th> Instructions</th>
+			<th> ID</th>
+		</tr>
+		<tr>
+			<td><%=request.getAttribute("check_in")%></td>
+			<td><%=request.getAttribute("check_out")%></td>
+			<td><%=request.getAttribute("adults")%></td>
+			<td><%=request.getAttribute("children")%></td>
+			<td><%=request.getAttribute("room_type")%></td>
+			<td><%=request.getAttribute("confirmation_code")%></td>
+			<td style="word-wrap: break-word"><%=request.getAttribute("instructions")%></td>
+			<td><%=request.getAttribute("reservation_id")%></td>
+		</tr>
+	</table>
+	<input type="hidden" value="<%=request.getAttribute("reservation_id")%>" />
+		
+<!-- Commented out this section to not get rid of code but now has updated table format: Nelson	 -->
+		
+	<!-- <h3>Check In</h3> -->
+	
+	
+	<%-- <h4><%=request.getAttribute("check_in")%></h4>
 	<h3>Check Out</h3>
-	<h4><%= request.getAttribute("check_out") %></h4>
+	<h4><%=request.getAttribute("check_out")%></h4>
 	<h3>Adults</h3>
-	<h4><%= request.getAttribute("adults") %></h4>
+	<h4><%=request.getAttribute("adults")%></h4>
 	<h3>Children</h3>
-	<h4><%= request.getAttribute("children") %></h4>
+	<h4><%=request.getAttribute("children")%></h4>
 	<h3>Room Type</h3>
-	<h4><%= request.getAttribute("room_type") %></h4>
+	<h4><%=request.getAttribute("room_type")%></h4>
 	<h3>Confirmation Code</h3>
-	<h4><%= request.getAttribute("confirmation_code") %></h4>
+	<h4><%=request.getAttribute("confirmation_code")%></h4>
 	<h3>Instructions</h3>
-	<h4><%= request.getAttribute("instructions") %></h4><br>
+	<h4><%=request.getAttribute("instructions")%></h4><br>
+	
 
+	<h3>ID</h3>
+	<h4><%=request.getAttribute("reservation_id")%></h4> --%>
 	
-	
-	<form style="display: inline" action="cancel-reservation" method="GET">
-		<input type="hidden" name="reservation_id" value="<%= request.getAttribute("reservation_id") %>" />
+<!--End of Commented out section: Nelson  -->
+
+	<form style="display: inline" action="cancel-reservation" method="POST">
+		<input type="hidden" value=<%=request.getAttribute("reservation_id")%> name="reservation_id"/>
 		<button name="cancelled" id="btn2">Cancel Reservation</button>
 	</form>
 	
