@@ -32,7 +32,7 @@
 	<div class="container" style="padding: 25px 50px 75px 50px;">
 	<h3 style= "text-align:center">Your Reservation</h3>
 	
-	<table class="table table-striped table-hover">
+	<table class="table table- bordered table-striped table-hover">
 		<tr>
 		
 			<th> Check In </th>
