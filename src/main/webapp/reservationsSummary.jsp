@@ -51,15 +51,17 @@
 
  	
  	<!-- Add an alert to let the user now that the reservation was created successfully -->
- 	<!-- Table template -->
+
+	<!-- Nelson's Table template -->
 
 	<div class="container" style="padding: 25px 50px 75px 50px;">
-				<h3 style="text-align: center">Your Reservation Summary</h3>
+				<h3 style="text-align: center; padding-bottom: 100px;  font-weight: bold;" ><u>Your Reservation Summary</u></h3>
 
-				<table style="width: 25%">
+				<table  style="width:50%">
 					<tr>
 						<th>Hotel Name</th>
 						<td><%=request.getAttribute("check_in")%></td>
+						  <td rowspan="2" style="float: right"><img src="australia.jpg" /></td>
 					</tr>
 					<tr>
 						<th>Hotel Address</th>
@@ -89,8 +91,11 @@
 						<th>Amenities</th>
 						<td><%=request.getAttribute("Adults")%></td>
 					</tr>
+						
 				</table>
-
+				
+				
+		
 				<%-- 
 		<form style="display: inline" action="cancel-reservation"
 			method="POST">
@@ -100,10 +105,12 @@
 			<button name="cancelled" id="btn2">Cancel Reservation</button>
 		</form>
  --%>
- 
-			</div>
+ 		
+ 		
+	</div>
+ 				
+ 				
 		<!-- End of Nelson's table Template -->
-	
 	
  	
  	<div id="wrapper">
