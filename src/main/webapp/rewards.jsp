@@ -25,25 +25,24 @@
  		response.sendRedirect("index.jsp");
  	} else { %>
 
-
-	
  	
  		<% List<RewardsRes> resList = (List<RewardsRes>)request.getAttribute("rewardsResList"); %>
+	
+			<!--  Rewards Page Table Outuput  -->
  		
  		<div id="wrapper">
- 		<div style="margin-top: 100px">
- 			<h3 class="text-center fw-bold h-line">Rewards</h3>
- 			
- 			<br><br>
- 			<h2 class="text-center fw-bold h-line"><%=session.getAttribute("first_name")%> <%=session.getAttribute("last_name") %></h2>
+			<div style="margin-top: 100px">
+				<h3 class="text-center fw-bold h-line">Rewards</h3>
+				<br><br>
+				<h2 class="text-center fw-bold h-line"><%=session.getAttribute("first_name")%> <%=session.getAttribute("last_name") %></h2>
+			</div>
  		</div>
- 	</div>
  		
- 		<div style="width:60%; text-align: right; margin: 0 auto;">
+ 		<div class="fw-bold" style="font-size: large; width:60%; text-align: right; margin: 0 auto;">
  			<p class="justify-content-end">Total Points: <%=request.getAttribute("totalPoints") %></p>
  		</div>
  		
- 	<div style="margin: 0 auto; width: 75%; text-align: center;">
+ 		<div style="margin: 0 auto; width: 75%; text-align: center;">
  			<table class="table table-hover table-bordered">
  				<thead>
     				<tr>
@@ -59,37 +58,35 @@
   				</thead>
   				
  		<% for (RewardsRes res : resList) { %>
- 				<tbody>
- 					<tr class="table-primary">
-      					<th scope="row"><%=res.getFirst_name() + " " + res.getLast_name() %></th>
-      					<td><%=res.getConfirmation_code() %></td>
-      					<td><%=res.getCity() + ", " + res.getInd_state() %></td>
-      					<td><%=res.getHotel_name() %></td>
-      					<td><%=res.getCheck_in() %></td>
-      					<td><%=res.getCheck_out() %></td>
-      					<td><%=res.getPoints() %></td>
-      					<td style="width: 10%;">
-      						<form action="IndividualResSum" method="GET" style="margin:0 auto;">
- 								<input type="hidden" name="reservation_id" value="<%= res.getId() %>" />
- 								<input type="hidden" name="check_in" value="<%= res.getCheck_in() %>" />
- 								<input type="hidden" name="check_out" value="<%= res.getCheck_out() %>" />
- 								<input type="hidden" name="adults" value="<%= res.getAdults() %>" />
- 								<input type="hidden" name="children" value="<%= res.getChildren() %>" />
- 								<input type="hidden" name="room_type" value="<%= res.getRoom_type() %>" />
- 								<input type="hidden" name="confirmation_code" value="<%= res.getConfirmation_code() %>" />
- 								<input type="hidden" name="instructions" value="<%= res.getInstructions() %>" />
- 								<input type="submit" name="submit" id="btn2" value="View Reservation" />
- 							</form> 
-      					</td>
+ 			<tbody>
+				<tr class="table-primary">
+				<th scope="row"><%=res.getFirst_name() + " " + res.getLast_name() %></th>
+				<td><%=res.getConfirmation_code() %></td>
+				<td><%=res.getCity() + ", " + res.getInd_state() %></td>
+				<td><%=res.getHotel_name() %></td>
+				<td><%=res.getCheck_in() %></td>
+				<td><%=res.getCheck_out() %></td>
+				<td><%=res.getPoints() %></td>
+				<td style="width: 10%;">
+					<form action="IndividualResSum" method="GET" style="margin:0 auto;">
+							<input type="hidden" name="reservation_id" value="<%= res.getId() %>" />
+							<input type="hidden" name="check_in" value="<%= res.getCheck_in() %>" />
+							<input type="hidden" name="check_out" value="<%= res.getCheck_out() %>" />
+							<input type="hidden" name="adults" value="<%= res.getAdults() %>" />
+							<input type="hidden" name="children" value="<%= res.getChildren() %>" />
+							<input type="hidden" name="room_type" value="<%= res.getRoom_type() %>" />
+							<input type="hidden" name="confirmation_code" value="<%= res.getConfirmation_code() %>" />
+							<input type="hidden" name="instructions" value="<%= res.getInstructions() %>" />
+							<input type="submit" name="submit" id="btn2" value="View Reservation" />
+					</form> 
+				</td>
     				</tr>
     			</tbody>
 
- 				
-
  			<% } %>
-    		</table>
-    	</div>
-
+    			</table>
+    		</div>
+					<!-- End of Table -->
  	<% } %>
  	
  	
