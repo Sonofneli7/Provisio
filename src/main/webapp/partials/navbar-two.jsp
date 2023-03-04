@@ -51,18 +51,23 @@
   <% } else { %>
   
  	<li class="nav-item">
-   		<a class="nav-link text-white" href="reservations">Reservations</a>
+   		<form action="reservations" method="POST" id="reserveForm">
+  			<input type="hidden" name="user_id" value=<%=session.getAttribute("user_id") %> />
+  			<!-- <button type="submit" id="btn1" class="btn nav-link">Reservations</button> -->
+  			<a class="nav-link text-white" style="cursor: pointer;" onclick="document.getElementById('reserveForm').submit()" >Reservations</a>
+    	</form>
   	</li>
   	<li class="nav-item">
-  		<form action="rewards" method="POST">
+  		<form action="rewards" method="POST" id="rewardsForm">
   			<input type="hidden" name="user_id" value="<%=session.getAttribute("user_id") %>" />
-  			<button type="submit" id="btn1" class="btn nav-link">Rewards</button>
+  			<!-- <button type="submit" id="btn1" class="btn nav-link">Rewards</button> -->
+  			<a class="nav-link text-white" style="cursor: pointer;" onclick="document.getElementById('rewardsForm').submit()" >Rewards</a>
     	</form>
   	</li>
    
    	<li class="nav-item">
   		<form class="" action="logout" method="POST">
-        	<button type="submit" name="loggedOut" id="btn1" class="btn nav-link">Log Out</button>
+        	<button type="submit" name="loggedOut" id="btn1" class="btn nav-link" onclick="if (!(confirm('Are you sure you want to logout?'))) return false">Log Out</button>
     	</form>
    </li>
    	<% } %>

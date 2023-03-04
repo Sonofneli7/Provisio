@@ -36,10 +36,10 @@
 	
 	
 	
-	<body>
+
 
                         <!-- About Company-->
-                        <div class="px-5" style="margin-top: 100px; margin-bottom: 100px">  
+                        <div class="px-5" style="margin-top: 100px; margin-bottom: 75px">  
                             <h3 class="text-center fw-bold h-font">ABOUT OUR COMPANY</h3>
                             <div class="h-line" style="margin: 0 auto; width: 65%">
                                    <p class="text-center mt-3" >
@@ -51,12 +51,11 @@
                             </div>
                         </div>
                          
-               <!--  picture and wording in about us area: middle of page  -->
-               <!-- Order of the pic/wording change depending on the viewing size  -->
+                 
                
-                   <div class="container">
-                     <div class="row align-items-center"> 
-                       <div class="col-lg-6 col-md-5 ms-5 mb-4 order-lg-1 order-md-1 order-2" >  
+                   <div class="container" style="margin-bottom: 10px">
+                     <div class="row align-items-center w-50" style="margin: 0 auto;"> 
+                       <div class="col-lg-6 col-md-5 mb-4 order-lg-1 order-md-1 order-2" style="width: 70%">  
                            <h3 class="mb-3">Message from our C.E.O.</h3>
                            <p>
                            Welcome to Provisio Beach and Resorts. I'm thrilled to take the time to say thank you
@@ -64,14 +63,13 @@
                            our guests, each and every day. I hope to have the opportunity to meet each and every one of you soon!
                            </p>
                        </div>
-                      					<!-- Picture of the CEO -->
-                        <div class="col-sm-2 mb-2 p-1 rounded shadow order-lg-2 order-md-2 order-1" >
-                        <img src="images/provisioceo.jpg"  alt= " CEO " style="width: 150%">
+                        <div class="col-lg-5 col-md-5 mb-4 order-lg-2 order-md-2 order-1" style="padding: 0; width: 30%;">
+                        <img src="images/provisioceo.jpg" class="rounded "  alt="CEO" style="width: 150%">
                        </div>
                      </div>  
                    </div>
 
-</body>
+
 
 
 

@@ -17,32 +17,28 @@
 <% String name = (String)session.getAttribute("first_name"); %>
 	<!-- NAVBAR JSP INCLUDE FOR FLEXIBILITY -->
 	<div id="landingHeader">
-    	<div class="container">
         	<div class="content">
             	<div class="text">
-            	
-				<!-- Be Vibrant Header   -->
-			
+
             		<% if (session.getAttribute("first_name") == null){ %>
-            			<h1 style="color: #ffffff; text-align: center;  text-shadow: 2px 2px #333300;;">Be Vibrant, Enjoy Life, <br> <span>Book Provisio</span></h1>
-            			<p class=" h1 " style="color: #F4C02C; text-shadow: 2px 2px #333300; font-size: 25px; text-align: center; margin-top: 60px; margin-right: 20px;">Welcome home at Provisio Beach and Resorts.<br>Family vacations to appeal each member. <br>and a getaway to achieve your relation needs.</p>
+            			<h1 style="color: #ffffff; text-align: center;  text-shadow: 2px 2px #333300;">Be Vibrant, Enjoy Life, <br> <span>Book Provisio</span></h1>
+            			<p class="h1" style="color: #F4C02C; text-shadow: 2px 2px #333300; font-size: 25px; text-align: center; margin-top: 60px; margin-right: 20px;">Welcome home at Provisio Beach and Resorts.<br>Family vacations to appeal each member. <br>and a getaway to achieve your relation needs.</p>
             			<div id="headerButton">
-           					<a href="" class="btn3" data-bs-toggle="modal" data-bs-target="#registerModal">Book Now</a>
+           					<a class="btn3" data-bs-toggle="modal" data-bs-target="#registerModal">Book Now</a>
            				</div>
             		<% } else { %>
-				<h1 style="text-align: center;">Be Vibrant, Enjoy Life, <br> <span>Welcome, <%= name %></span></h1>
-				<div id="headerButton">
-					<form action="rewards" method="POST">
-						<input type="hidden" name="user_id" value="<%=session.getAttribute("user_id") %>" />
-						<button type="submit" id="btn2" class="">Rewards</button>	
-					</form>
-				</div>
-			
+						<h1 style="color: #ffffff; text-align: center;  text-shadow: 2px 2px #333300;">Be Vibrant, Enjoy Life, <br> <span>Welcome, <%= name %></span></h1>
+						<div id="headerButton">
+							<form action="rewards" method="POST">
+  								<input type="hidden" name="user_id" value="<%=session.getAttribute("user_id") %>" />
+  								<button type="submit" id="btn2" class="">Rewards</button>
+    						</form>
+           				</div>
             		<% } %>
-  	
-           	    </div>
+
+           			
+           		</div>
        		</div>
-   	   </div>
  	</div> 
 </body>
 </html>

@@ -51,67 +51,7 @@
 
  	
  	<!-- Add an alert to let the user now that the reservation was created successfully -->
-
-	<!-- Nelson's Table template -->
-
-	<div class="container" style="padding: 25px 50px 75px 50px;">
-				<h3 style="text-align: center; padding-bottom: 100px;  font-weight: bold;" ><u>Your Reservation Summary</u></h3>
-
-				<table  style="width:50%">
-					<tr>
-						<th>Hotel Name</th>
-						<td><%=request.getAttribute("check_in")%></td>
-						  <td rowspan="2" style="float: right"><img src="australia.jpg" /></td>
-					</tr>
-					<tr>
-						<th>Hotel Address</th>
-						<td><%=request.getAttribute("check_in")%></td>
-					</tr>
-					<tr>
-						<th>Check-in</th>
-						<td><%=request.getAttribute("check_in")%></td>
-					</tr>
-					<tr>
-						<th>Check-out</th>
-						<td><%=request.getAttribute("check_out")%></td>
-					</tr>
-					<tr>
-						<th>Adults</th>
-						<td><%=request.getAttribute("adults")%></td>
-					</tr>
-					<tr>
-						<th>Children</th>
-						<td><%=request.getAttribute("children")%></td>
-					</tr>
-					<tr>
-						<th>Room Type</th>
-						<td><%=request.getAttribute("room_type")%></td>
-					</tr>
-					<tr>
-						<th>Amenities</th>
-						<td><%=request.getAttribute("Adults")%></td>
-					</tr>
-						
-				</table>
-				
-				
-		
-				<%-- 
-		<form style="display: inline" action="cancel-reservation"
-			method="POST">
-			<input type="hidden"
-				value='<%=request.getAttribute("reservation_id")%>'
-				name="reservation_id" />
-			<button name="cancelled" id="btn2">Cancel Reservation</button>
-		</form>
- --%>
- 		
- 		
-	</div>
- 				
- 				
-		<!-- End of Nelson's table Template -->
-	
+ 	
  	
  	<div id="wrapper">
  		<div style="margin-top: 100px">
@@ -120,6 +60,8 @@
  		</div>
  	</div>
  	
+
+ 	
  	
  	<% if (theReservations.isEmpty() == false) { %>
  	
@@ -127,43 +69,95 @@
 	<jsp:include page="partials/forms/reservationlookup.jsp" />
 	
 	
- 	<!--  Nelson's vertical table template -->
- 	
  	
  	<div style="margin: 0 auto; width: 60%">
  		<% for (Reservation res : theReservations) { %>
- 			<div class="card py-3 grow" style="margin: 30px 0px; padding:50px">
+ 			<div class="card py-3 grow" style="margin: 50px 0px; padding:100px 50px">
  				<div class="card-body">
- 				    <p><%=res.getReservation_id()%></p>
- 					<h4>Check In: </h4><h5><%=res.getCheck_in()%></h5>
- 					<h4>Check Out: </h4><h5><%=res.getCheck_out()%></h5>
- 					<h4>Adults: </h4><h3><%=res.getAdults()%></h3>
- 					<h4>Children: </h4><h5><%=res.getChildren()%></h5>
- 					<h4>Room Type: </h4><h5><%=res.getRoom_type()%></h5>
- 					<h4>Confirmation Code: </h4><h5><%=res.getConfirmation_code()%></h5>
- 					<h4>Instructions: </h4><h5><%=res.getInstructions()%></h5>
+ 				    <%-- <p><%=res.getReservation_id()%></p> --%>
+ 				    <div style="width: 50%; float: left">
+	 				   
+	 				   <h4><strong>Reservation Details:</strong></h4>
+	 				   <br>
+	 				   
+	 				   	
+	 				   	<h5><strong>Confirmation Code: </strong><%=res.getConfirmation_code()%></h5>
+	 				   	<h5><strong>Check-in: </strong><%=res.getCheck_in()%> <strong>Check-out: </strong> <%=res.getCheck_out()%></h5> 
+	 				   	<h5><strong>Adults: </strong><%=res.getAdults()%></h5>
+	 				   	<h5><strong>Children: </strong><%=res.getChildren()%></h5>
+	 					<h5><strong>Room Type: </strong><%=res.getRoom_type()%></h5>
+	 					<h5><strong>Instructions: </strong></h5><h5><%=res.getInstructions()%></h5>
+	 					<%-- <h4>Points: </h4><h5><%=res.getPoints()%></h5> --%>
+	 					
+	 					
+		 				<form action="IndividualResSum" method="POST">
+		 					<input type="hidden" name="reservation_id" value="<%=res.getReservation_id()%>" />
+		 					<input type="hidden" name="adults" value="<%=res.getAdults()%>" />
+		 					<input type="hidden" name="children" value="<%=res.getChildren()%>" />
+		 					<input type="hidden" name="instructions" value="<%=res.getInstructions()%>" />
+		 					<input type="hidden" name="confirmation_code" value="<%=res.getConfirmation_code()%>" />
+		 					<input type="hidden" name="check_in" value="<%=res.getCheck_in()%>" />
+		 					<input type="hidden" name="check_out" value="<%=res.getCheck_out()%>" />
+		 					<input type="hidden" name="points" value="<%=res.getPoints()%>" />
+		 					<input type="hidden" name="room_type" value="<%=res.getRoom_type()%>" />
+		 					<input type="hidden" name="hotel_id" value="<%=res.getHotel_id()%>" />
+		 					<input type="hidden" name="user_id" value="<%=res.getUser_id()%>" />
+		 					<input type="hidden" name="city" value="<%=res.getCity()%>" />
+		 					<input type="hidden" name="state" value="<%=res.getState()%>" />
+		 					<input type="hidden" name="zip" value="<%=res.getZip()%>" />
+		 					<input type="hidden" name="picture" value="<%=res.getPicture()%>" />
+		 					<input type="hidden" name="hotel_name" value="<%=res.getHotel_name()%>" />
+		 					<input type="hidden" name="address" value="<%=res.getAddress()%>" />
+		 					<input type="hidden" name="phone_number" value="<%=res.getPhone_number()%>" />
+		 					<input type="hidden" name="place_id" value="<%=res.getPlace_id()%>" />
+		 					<input type="hidden" name="amenities" value="<%=res.getAmenities()%>" />
+		 					<input type="hidden" name="descrip" value="<%=res.getDescrip()%>" />
+		 					<input type="submit" name="submit" id="btn2" value="View Reservation" style="margin: 100px auto"/>
+	 					</form>
+	 					
+	 					
+	 					
+ 					</div>
+
+ 					<div style="width: 50%; float: left">
+ 						<h4><strong>Hotel Information:</strong></h4>
+ 						<br>
+ 						<h5><%=res.getHotel_name()%></h5>
+ 						<h5><%=res.getAddress()%></h5>
+ 						<h5><%=res.getCity()%>, <%=res.getState()%> <%=res.getZip()%> </h5>
+ 						<h5><%=res.getPhone_number()%></h5>
+ 						<br>
+ 						<img style="width: 90%" src="images/<%=res.getPicture() %>"/>
+						<br><br>
+	 					<h5><strong>Amenities: </strong></h5><h5><%=res.getAmenities()%></h5>
+	 					<h5><strong>Description: </strong></h5><h5><%=res.getDescrip()%></h5>
+ 					</div>
 
  				</div>
- 				<form action="IndividualResSum" method="POST">
- 					<input type="hidden" name="reservation_id" value="<%=res.getReservation_id()%>" />
- 					<input type="hidden" name="check_in" value="<%=res.getCheck_in()%>" />
- 					<input type="hidden" name="check_out" value="<%=res.getCheck_out()%>" />
- 					<input type="hidden" name="adults" value="<%=res.getAdults()%>" />
- 					<input type="hidden" name="children" value="<%=res.getChildren()%>" />
- 					<input type="hidden" name="room_type" value="<%=res.getRoom_type()%>" />
- 					<input type="hidden" name="confirmation_code" value="<%=res.getConfirmation_code()%>" />
- 					<input type="hidden" name="instructions" value="<%=res.getInstructions()%>" />
- 					<input type="submit" name="submit" id="btn2" value="View Reservation" />
- 				</form>
+ 				
  				
  			</div>
  		<% } %>
  	</div>
  	
  	<% } else { %>
- 	<div>
- 	<h1>There are no reservations</h1>
- 	</div>
+ 		<div id="wrapper">
+ 			<div style="margin-top: 25px; color: red">
+ 				<h3 class="text-center fw-bold h-line">There are no reservations are the moment</h3>
+ 				<br><br>
+ 			</div>
+ 		</div>
+ 		
+ 		
+ 		
+ 	<!-- NAVBAR JSP INCLUDE FOR FLEXIBILITY -->
+	<jsp:include page="partials/values.jsp"/>
+	
+	
+	<!-- NAVBAR JSP INCLUDE FOR FLEXIBILITY -->
+	<jsp:include page="partials/touristicPlaces.jsp"/>
+	
+	
  	<% } %>
  	
  	

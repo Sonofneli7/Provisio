@@ -55,13 +55,13 @@ CREATE TABLE user (
     PRIMARY KEY(user_id)
 );
 
-INSERT INTO user(first_name, last_name, email, passphrase, points)
+INSERT INTO user(first_name, last_name, email, passphrase)
     VALUES('Darell', 'Reese', 'dreese@gmail.com', 'Python%78');
 
-INSERT INTO user(first_name, last_name, email, passphrase, points)
+INSERT INTO user(first_name, last_name, email, passphrase)
     VALUES('Austin', 'Powers', 'yeahbaby@hotmail.com', 'hahaYEAH!');
 
-INSERT INTO user(first_name, last_name, email, passphrase, points)
+INSERT INTO user(first_name, last_name, email, passphrase)
     VALUES('Isabella', 'Holmes', 'holmesbella@icloud.com', 'Detective#700');
 
 --DELETE FROM user WHERE first_name = 'Jeffrey'; done for testing purposes
@@ -114,7 +114,7 @@ CREATE TABLE hotel (
     hotel_id        INT             NOT NULL        AUTO_INCREMENT,
     hotel_name      VARCHAR(75)     NOT NULL,
     address      VARCHAR(200)     NOT NULL,
-    phone_number      VARCHAR(10)     NOT NULL,
+    phone_number      VARCHAR(25)     NOT NULL,
     price          	 INT            	 NOT NULL,
     descrip         VARCHAR(255)    NOT NULL,
     amenities       VARCHAR(300)    NOT NULL,
@@ -129,7 +129,7 @@ INSERT INTO hotel(hotel_name, address, phone_number, price, descrip, amenities, 
     VALUES(
         'Old Key West', 
         '123 Madison St',
-        '6317283948',
+        '(631) 728-3948',
         500, 
         'Family fun resort style stay', 
         'Pool, Tennis, Gym, Amusement Parks, Restaurants', 
@@ -140,7 +140,7 @@ INSERT INTO hotel(hotel_name, address, phone_number, price, descrip, amenities, 
     VALUES(
         'Provisio South Beach', 
         '786 Hollywood Blvd',
-        '5162837483',
+        '(516) 283-7483',
         1000, 
         'Adult Hideaway', 
         'Pool, Clubs, Gym, Restaurants, Bars', 
@@ -151,13 +151,81 @@ INSERT INTO hotel(hotel_name, address, phone_number, price, descrip, amenities, 
     VALUES(
         'Grand Provisio', 
         '362 Grand Way',
-        '3237483928',
+        '(323) 748-3928',
         2000, 
         'Executive Business Stays', 
         'Pool, Gym, Conference Areas, Restaurants, Free Wifi', 
         (SELECT place_id FROM place where city = 'New York')
         );
+        
+INSERT INTO hotel(hotel_name, address, phone_number, price, descrip, amenities, place_id)
+    VALUES(
+        'DoubleTree by Hilton Hotel', 
+        '270 Flinders St',
+        '+61 3 9654 6888',
+        689, 
+        'Executive Business Stays', 
+        'Pool, Gym, Conference Areas, Restaurants, Free Wifi', 
+        (SELECT place_id FROM place where city = 'Melbourne')
+        );
 
+
+INSERT INTO hotel(hotel_name, address, phone_number, price, descrip, amenities, place_id)
+    VALUES(
+        'Caesars Palace', 
+        '3570 S Las Vegas Blvd',
+        '(866) 227-5938',
+        1727, 
+        'Executive Business Stays', 
+        'Pool, Gym, Conference Areas, Restaurants, Free Wifi', 
+        (SELECT place_id FROM place where city = 'Las Vegas')
+        );
+ 
+INSERT INTO hotel(hotel_name, address, phone_number, price, descrip, amenities, place_id)
+    VALUES(
+        'Hotel Astoria - Astotel', 
+        '42 rue de Moscou 8th Arr.,',
+        '011 33 1 42 93 63 53',
+        125, 
+        'Executive Business Stays', 
+        'Pool, Gym, Conference Areas, Restaurants, Free Wifi', 
+        (SELECT place_id FROM place where city = 'Paris')
+        );
+        
+INSERT INTO hotel(hotel_name, address, phone_number, price, descrip, amenities, place_id)
+    VALUES(
+        'Hotel Mercurio Venice', 
+        '30124 Venezia VE',
+        '+39 041 522 0947',
+        67, 
+        'Executive Business Stays', 
+        'Pool, Gym, Conference Areas, Restaurants, Free Wifi', 
+        (SELECT place_id FROM place where city = 'Venice')
+        );
+        
+INSERT INTO hotel(hotel_name, address, phone_number, price, descrip, amenities, place_id)
+    VALUES(
+        'Hard Rock Hotel & Casino Lake Tahoe', 
+        '50 US-59, Stateline',
+        '(844) 588-7625',
+        80, 
+        'Executive Business Stays', 
+        'Pool, Gym, Conference Areas, Restaurants, Free Wifi', 
+        (SELECT place_id FROM place where city = 'Lake Tahoe')
+        );
+        
+INSERT INTO hotel(hotel_name, address, phone_number, price, descrip, amenities, place_id)
+    VALUES(
+        'DoubleTree by Hilton London - Tower of London', 
+        '7 Pepys St, Londong EC3N 4AF',
+        '+44 20 7709 1000',
+        134, 
+        'Executive Business Stays', 
+        'Pool, Gym, Conference Areas, Restaurants, Free Wifi', 
+        (SELECT place_id FROM place where city = 'London')
+        );
+        
+        
 -- CREATE TABLE RESERVATION
 
 CREATE TABLE reservation (
@@ -186,13 +254,41 @@ INSERT INTO reservation(user_id, hotel_id, adults, children, points, confirmatio
         5,
         2,
         150,
-        '82HDJ345',
+        '36D38FJK3',
         '2019-08-21',
         '2019-08-28',
         'Double Queen Beds',
         'Make sure to have it close to the lobby'
     );
 
+INSERT INTO reservation(user_id, hotel_id, adults, children, points, confirmation_code, check_in, check_out, room_type, instructions) 
+    VALUES (
+        (SELECT user_id FROM user WHERE first_name = 'Darell'),
+        (SELECT hotel_id FROM hotel WHERE hotel_name = 'DoubleTree by Hilton Hotel'),
+        1,
+        0,
+        150,
+        '27T98JKV2',
+        '2020-09-02',
+        '2020-09-17',
+        'King',
+        'No suggestions'
+    );
+
+INSERT INTO reservation(user_id, hotel_id, adults, children, points, confirmation_code, check_in, check_out, room_type, instructions) 
+    VALUES (
+        (SELECT user_id FROM user WHERE first_name = 'Darell'),
+        (SELECT hotel_id FROM hotel WHERE hotel_name = 'Caesars Palace'),
+        3,
+        7,
+        150,
+        '98DYE839J',
+        '2021-05-10',
+        '2021-05-20',
+        'Double Full Beds',
+        'Would love to be close to the pool or a bar'
+    );
+    
 INSERT INTO reservation(user_id, hotel_id, adults, children, points, confirmation_code, check_in, check_out, room_type, instructions) 
     VALUES (
         (SELECT user_id FROM user WHERE first_name = 'Isabella'),
@@ -203,24 +299,93 @@ INSERT INTO reservation(user_id, hotel_id, adults, children, points, confirmatio
         '3TIM4XOZ',
         '2020-09-27',
         '2020-10-14',
-        'Double Full Beds',
+        'Double Queen Beds',
         'Would like to have it close to the pool'
+    );
+    
+INSERT INTO reservation(user_id, hotel_id, adults, children, points, confirmation_code, check_in, check_out, room_type, instructions) 
+    VALUES (
+        (SELECT user_id FROM user WHERE first_name = 'Isabella'),
+        (SELECT hotel_id FROM hotel WHERE hotel_name = 'Hotel Mercurio Venice'),
+        2,
+        0,
+        150,
+        '87SCK473I',
+        '2021-03-16',
+        '2021-03-27',
+        'Double Full Beds',
+        'Please make sure to have it close to shops'
     );
 
 INSERT INTO reservation(user_id, hotel_id, adults, children, points, confirmation_code, check_in, check_out, room_type, instructions) 
     VALUES (
         (SELECT user_id FROM user WHERE first_name = 'Austin'),
-        (SELECT hotel_id FROM hotel WHERE hotel_name = 'Grand Provisio'),
+        (SELECT hotel_id FROM hotel WHERE hotel_name = 'Hotel Astoria - Astotel'),
         2,
         0,
         150,
-        '4HTU9384',
+        '8JD65SYE2',
         '2022-07-21',
         '2022-08-09',
         'King',
         'Would love to have it next to a restaurant'
     );
 
+INSERT INTO reservation(user_id, hotel_id, adults, children, points, confirmation_code, check_in, check_out, room_type, instructions) 
+    VALUES (
+        (SELECT user_id FROM user WHERE first_name = 'Austin'),
+        (SELECT hotel_id FROM hotel WHERE hotel_name = 'Hotel Mercurio Venice'),
+        4,
+        2,
+        150,
+        '1JK38KJH2',
+        '2021-05-21',
+        '2021-05-31',
+        'Double Full Beds',
+        'Would be nice to have a high floor to watch the fireworks'
+    );
+    
+INSERT INTO reservation(user_id, hotel_id, adults, children, points, confirmation_code, check_in, check_out, room_type, instructions) 
+    VALUES (
+        (SELECT user_id FROM user WHERE first_name = 'Austin'),
+        (SELECT hotel_id FROM hotel WHERE hotel_name = 'Hard Rock Hotel & Casino Lake Tahoe'),
+        1,
+        0,
+        150,
+        '9EN47MWQ6',
+        '2022-01-01',
+        '2022-01-21',
+        'King',
+        'Could we leave our packages at reception, so it could be brought inside when check-in'
+    );
+
+INSERT INTO reservation(user_id, hotel_id, adults, children, points, confirmation_code, check_in, check_out, room_type, instructions) 
+    VALUES (
+        (SELECT user_id FROM user WHERE first_name = 'Austin'),
+        (SELECT hotel_id FROM hotel WHERE hotel_name = 'DoubleTree by Hilton London - Tower of London'),
+        4,
+        7,
+        150,
+        '7QQ44ENN3',
+        '2022-12-21',
+        '2022-12-31',
+        'Double Queen Beds',
+        'High Floor if possible'
+    );
+    
+INSERT INTO reservation(user_id, hotel_id, adults, children, points, confirmation_code, check_in, check_out, room_type, instructions) 
+    VALUES (
+        (SELECT user_id FROM user WHERE first_name = 'Austin'),
+        (SELECT hotel_id FROM hotel WHERE hotel_name = 'Grand Provisio'),
+        3,
+        2,
+        150,
+        '4HTU9384',
+        '2019-06-09',
+        '2019-06-17',
+        'Double Full Beds',
+        'No suggestions'
+    );
 
 
 

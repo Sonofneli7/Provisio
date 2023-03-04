@@ -97,9 +97,10 @@ nav a {
 .content {
     position: relative;
     display: flex;
-    width: 100%;
+    width: 60%;
     align-items: center;
     justify-content: space-between;
+    margin: 0 auto;
 }
 .content .text {
     position: relative;
@@ -582,3 +583,29 @@ input[type=submit]{
 .location-btn{
     text-align: center;
 }
+
+
+/* Testing the git push */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

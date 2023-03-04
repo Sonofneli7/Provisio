@@ -25,24 +25,29 @@
  		response.sendRedirect("index.jsp");
  	} else { %>
 
+
+	
  	
  		<% List<RewardsRes> resList = (List<RewardsRes>)request.getAttribute("rewardsResList"); %>
-	
-			<!--  Rewards Page Table Outuput  -->
  		
  		<div id="wrapper">
-			<div style="margin-top: 100px">
-				<h3 class="text-center fw-bold h-line">Rewards</h3>
-				<br><br>
-				<h2 class="text-center fw-bold h-line"><%=session.getAttribute("first_name")%> <%=session.getAttribute("last_name") %></h2>
-			</div>
+ 			<div style="margin-top: 100px">
+ 				<h3 class="text-center fw-bold h-line">Rewards</h3>
+ 			
+ 				<br><br>
+ 				<h2 class="text-center fw-bold h-line"><%=session.getAttribute("first_name")%> <%=session.getAttribute("last_name") %></h2>
+ 			</div>
  		</div>
  		
- 		<div class="fw-bold" style="font-size: large; width:60%; text-align: right; margin: 0 auto;">
- 			<p class="justify-content-end">Total Points: <%=request.getAttribute("totalPoints") %></p>
+ 		
+ 		
+ 		<% if (resList.isEmpty() == false) { %>
+ 		
+ 		<div style="width:60%; text-align: right; margin: 0 auto;">
+ 			<p class="justify-content-end" style="font-weight: bold;" >Total Points: <%=request.getAttribute("totalPoints") %></p>
  		</div>
  		
- 		<div style="margin: 0 auto; width: 75%; text-align: center;">
+ 	<div style="margin: 0 auto; width: 75%; text-align: center;">
  			<table class="table table-hover table-bordered">
  				<thead>
     				<tr>
@@ -58,35 +63,60 @@
   				</thead>
   				
  		<% for (RewardsRes res : resList) { %>
- 			<tbody>
-				<tr class="table-primary">
-				<th scope="row"><%=res.getFirst_name() + " " + res.getLast_name() %></th>
-				<td><%=res.getConfirmation_code() %></td>
-				<td><%=res.getCity() + ", " + res.getInd_state() %></td>
-				<td><%=res.getHotel_name() %></td>
-				<td><%=res.getCheck_in() %></td>
-				<td><%=res.getCheck_out() %></td>
-				<td><%=res.getPoints() %></td>
-				<td style="width: 10%;">
-					<form action="IndividualResSum" method="GET" style="margin:0 auto;">
-							<input type="hidden" name="reservation_id" value="<%= res.getId() %>" />
-							<input type="hidden" name="check_in" value="<%= res.getCheck_in() %>" />
-							<input type="hidden" name="check_out" value="<%= res.getCheck_out() %>" />
-							<input type="hidden" name="adults" value="<%= res.getAdults() %>" />
-							<input type="hidden" name="children" value="<%= res.getChildren() %>" />
-							<input type="hidden" name="room_type" value="<%= res.getRoom_type() %>" />
-							<input type="hidden" name="confirmation_code" value="<%= res.getConfirmation_code() %>" />
-							<input type="hidden" name="instructions" value="<%= res.getInstructions() %>" />
-							<input type="submit" name="submit" id="btn2" value="View Reservation" />
-					</form> 
-				</td>
+ 				<tbody>
+ 					<tr class="table-primary">
+      					<th scope="row"><%=res.getFirst_name() + " " + res.getLast_name() %></th>
+      					<td><%=res.getConfirmation_code() %></td>
+      					<td><%=res.getCity() + ", " + res.getState() %></td>
+      					<td><%=res.getHotel_name() %></td>
+      					<td><%=res.getCheck_in() %></td>
+      					<td><%=res.getCheck_out() %></td>
+      					<td><%=res.getPoints() %></td>
+      					<td style="width: 10%;">
+      						<form action="IndividualResSum" method="POST" style="margin:0 auto;">
+ 								<input type="hidden" name="reservation_id" value="<%=res.getReservation_id()%>" />
+ 								<input type="hidden" name="adults" value="<%=res.getAdults()%>" />
+ 								<input type="hidden" name="children" value="<%=res.getChildren()%>" />
+ 								<input type="hidden" name="instructions" value="<%=res.getInstructions()%>" />
+ 								<input type="hidden" name="confirmation_code" value="<%=res.getConfirmation_code()%>" />
+ 								<input type="hidden" name="check_in" value="<%=res.getCheck_in()%>" />
+ 								<input type="hidden" name="check_out" value="<%=res.getCheck_out()%>" />
+ 								<input type="hidden" name="points" value="<%=res.getPoints()%>" />
+ 								<input type="hidden" name="room_type" value="<%=res.getRoom_type()%>" />
+ 								<input type="hidden" name="hotel_id" value="<%=res.getHotel_id()%>" />
+ 								<input type="hidden" name="user_id" value="<%=res.getUser_id()%>" />
+ 								<input type="hidden" name="city" value="<%=res.getCity()%>" />
+ 								<input type="hidden" name="state" value="<%=res.getState()%>" />
+ 								<input type="hidden" name="zip" value="<%=res.getZip()%>" />
+ 								<input type="hidden" name="picture" value="<%=res.getPicture()%>" />
+ 								<input type="hidden" name="hotel_name" value="<%=res.getHotel_name()%>" />
+ 								<input type="hidden" name="address" value="<%=res.getAddress()%>" />
+ 								<input type="hidden" name="phone_number" value="<%=res.getPhone_number()%>" />
+ 								<input type="hidden" name="place_id" value="<%=res.getPlace_id()%>" />
+ 								<input type="hidden" name="amenities" value="<%=res.getAmenities()%>" />
+ 								<input type="hidden" name="descrip" value="<%=res.getDescrip()%>" />
+ 								<input type="submit" name="submit" id="btn2" value="View Reservation" />
+ 							</form> 
+      					</td>
     				</tr>
     			</tbody>
 
+ 				
+
  			<% } %>
-    			</table>
-    		</div>
-					<!-- End of Table -->
+    		</table>
+    	</div>
+    	<% } else { %>
+    	
+ 		<div id="wrapper">
+ 			<div style="margin-top: 25px; color: red">
+ 				<h3 class="text-center fw-bold h-line">There are no reservations are the moment</h3>
+ 				<br><br>
+ 			</div>
+ 		</div>
+ 		
+ 		<% } %>
+
  	<% } %>
  	
  	

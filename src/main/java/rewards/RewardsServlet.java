@@ -54,7 +54,7 @@ public class RewardsServlet extends HttpServlet {
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/provisio", "provisio_user", "password");
 			Statement stmt = con.createStatement();
 //			Resource: https://www.freecodecamp.org/news/sql-inner-join-how-to-join-3-tables-in-sql-and-mysql/
-			ResultSet rs = stmt.executeQuery("SELECT * FROM reservation INNER JOIN user ON reservation.user_id = user.user_id INNER JOIN hotel ON reservation.hotel_id = hotel.hotel_id INNER JOIN place ON hotel.place_id = place.place_id WHERE reservation.user_id = " + user_id);
+			ResultSet rs = stmt.executeQuery("SELECT * FROM reservation INNER JOIN user ON reservation.user_id = user.user_id INNER JOIN hotel ON reservation.hotel_id = hotel.hotel_id INNER JOIN place ON hotel.place_id = place.place_id WHERE reservation.user_id = " + user_id + " ORDER BY reservation_id DESC;");
 			
 			while (rs.next()) {
 //				User Table
@@ -63,7 +63,7 @@ public class RewardsServlet extends HttpServlet {
 				String email = rs.getString("email");
 				
 //				Reservation Table
-				int id = rs.getInt("reservation_id");
+				int reservation_id = rs.getInt("reservation_id");
 				int adults = rs.getInt("adults");
 				int children = rs.getInt("children");
 				String instructions = rs.getString("instructions");
@@ -72,16 +72,23 @@ public class RewardsServlet extends HttpServlet {
 				String check_out = rs.getString("check_out");
 				String room_type = rs.getString("room_type");
 				int points = rs.getInt("points");
+				int hotel_id = rs.getInt("hotel_id");
+				int user_sql_id = rs.getInt("user_id");
 				
 //				Place Table
 				String city = rs.getString("city");
-				String ind_state = rs.getString("ind_state");
+				String state = rs.getString("ind_state");
+				String zip = rs.getString("zip");
+				String picture = rs.getString("picture");
 				
 //				Hotel Table
 				String hotel_name = rs.getString("hotel_name");
-				String descrip = rs.getString("descrip");
+				String address = rs.getString("address");
+				String phone_number = rs.getString("phone_number");
+				int place_id = rs.getInt("place_id");
 				String amenities = rs.getString("amenities");
-				int zip = rs.getInt("zip");
+				String descrip = rs.getString("descrip");
+				
 				
 //				out.println("<h3>User Table</h3>");
 //				out.println("<strong>First Name: </strong>" + first_name);
@@ -127,7 +134,7 @@ public class RewardsServlet extends HttpServlet {
 				
 				
 				
-				RewardsRes tempRes = new RewardsRes(id, first_name, last_name, email, adults, children, instructions, confirmation_code, check_in, check_out, room_type, points, city, ind_state, hotel_name, descrip, amenities, zip);;
+				RewardsRes tempRes = new RewardsRes(first_name, last_name, email, reservation_id, adults, children, instructions, confirmation_code, check_in, check_out, room_type, points, hotel_id, user_sql_id, city, state, zip, picture, hotel_name, address, phone_number, place_id, amenities, descrip);
 				totalPoints += points;
 				rewardsRes.add(tempRes);
 				
