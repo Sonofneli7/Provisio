@@ -14,7 +14,7 @@
 </head>
 <body>
 
-<section>
+
 
 <!-- NAVBAR JSP INCLUDE FOR FLEXIBILITY -->
 	<jsp:include page="./partials/navbar-two.jsp" />
@@ -25,8 +25,9 @@
  	<!--Modal fade for User Registration-->
  	<jsp:include page="./partials/forms/registration.jsp" />
  	
- 	
-
+<!--   Beginning of Register User Form	 -->
+	
+<section>
 	<div class="modal-content">
     	<form action="register" method="POST">
     	<div id="backToHomepageLink">
@@ -69,11 +70,13 @@
             </div>
         </form>
     </div>
-</section>
+    <section>
+
 
 <!-- FOOTER INCLUDE  -->
  	<jsp:include page="./partials/footer.jsp" />
 
 </body>
 </html>
+
 
